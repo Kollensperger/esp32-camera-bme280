@@ -5,7 +5,7 @@
 #include <Adafruit_BME280.h>
 #include "esp_camera.h"
 #include "esp_wifi.h"
-
+#define USEBOARD_TTGO_T     // for TTGO board with PIR
 
 #define ENABLE_SSD1306
 #define SOFTAP_MODE       //The comment will be connected to the specified ssid
