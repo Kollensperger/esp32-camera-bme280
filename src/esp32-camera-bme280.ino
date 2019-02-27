@@ -5,6 +5,7 @@
 #include <Adafruit_BME280.h>
 #include "esp_camera.h"
 #include "esp_wifi.h"
+#include "Preferences.h"
 #define USEBOARD_TTGO_T     // for TTGO board with PIR
 
 #define ENABLE_SSD1306
