@@ -3,12 +3,12 @@
  *
  * Designed specifically to work with the Adafruit BME280 Breakout
  * ----> http://www.adafruit.com/products/2650
- * 
+ *
  * These sensors use I2C or SPI to communicate, 2 or 4 pins are required
  * to interface.
- * 
- * Adafruit invests time and resources providing this open source code, 
- * please support Adafruit and open-source hardware by purchasing 
+ *
+ * Adafruit invests time and resources providing this open source code,
+ * please support Adafruit and open-source hardware by purchasing
  * products from Adafruit!
  *
  * Written by Kevin "KTOWN" Townsend for Adafruit Industries.
@@ -26,11 +26,11 @@
  #include "WProgram.h"
 #endif
 
-#include <Adafruit_Sensor.h>
+//#include <Adafruit_Sensor.h>
 #include <Wire.h>
 
 /**************************************************************************/
-/*! 
+/*!
     @brief  default I2C address
 */
 /**************************************************************************/
@@ -38,7 +38,7 @@
 /*=========================================================================*/
 
 /**************************************************************************/
-/*! 
+/*!
     @brief Register addresses
 */
 /**************************************************************************/
@@ -81,7 +81,7 @@
     };
 
 /**************************************************************************/
-/*! 
+/*!
     @brief  calibration data
 */
 /**************************************************************************/
@@ -132,14 +132,14 @@ class Adafruit_BME280_Unified : public Adafruit_Sensor
 */
 
 /**************************************************************************/
-/*! 
+/*!
     @brief  Class that stores state and functions for interacting with BME280 IC
 */
 /**************************************************************************/
 class Adafruit_BME280 {
     public:
     /**************************************************************************/
-    /*! 
+    /*!
         @brief  sampling rates
     */
     /**************************************************************************/
@@ -153,7 +153,7 @@ class Adafruit_BME280 {
         };
 
         /**************************************************************************/
-        /*! 
+        /*!
             @brief  power modes
         */
         /**************************************************************************/
@@ -164,7 +164,7 @@ class Adafruit_BME280 {
         };
 
         /**************************************************************************/
-        /*! 
+        /*!
             @brief  filter values
         */
         /**************************************************************************/
@@ -177,7 +177,7 @@ class Adafruit_BME280 {
         };
 
         /**************************************************************************/
-        /*! 
+        /*!
             @brief  standby duration in ms
         */
         /**************************************************************************/
@@ -191,12 +191,12 @@ class Adafruit_BME280 {
             STANDBY_MS_500  = 0b100,
             STANDBY_MS_1000 = 0b101
         };
-    
+
         // constructors
         Adafruit_BME280(void);
         Adafruit_BME280(int8_t cspin);
         Adafruit_BME280(int8_t cspin, int8_t mosipin, int8_t misopin, int8_t sckpin);
-		
+
 		bool begin(void);
 		bool begin(TwoWire *theWire);
 		bool begin(uint8_t addr);
@@ -210,16 +210,16 @@ class Adafruit_BME280 {
 			 sensor_filter filter          = FILTER_OFF,
 			 standby_duration duration     = STANDBY_MS_0_5
 			 );
-                   
+
         void takeForcedMeasurement();
         float readTemperature(void);
         float readPressure(void);
         float readHumidity(void);
-        
+
         float readAltitude(float seaLevel);
         float seaLevelForAltitude(float altitude, float pressure);
 
-        
+
     private:
 		TwoWire *_wire;
         void readCoefficients(void);
@@ -273,7 +273,7 @@ class Adafruit_BME280 {
         };
         config _configReg;
 
-        
+
         // The ctrl_meas register
         struct ctrl_meas {
             // temperature oversampling
@@ -306,7 +306,7 @@ class Adafruit_BME280 {
         };
         ctrl_meas _measReg;
 
-        
+
         // The ctrl_hum register
         struct ctrl_hum {
             // unused - don't set
